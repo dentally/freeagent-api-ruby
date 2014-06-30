@@ -52,11 +52,11 @@ module FreeAgent
     def self.find_all_by_project(project)
       Invoice.filter(:project => project)
     end
-    
+
     # FIXME Need to figure out the format of the json.
-    #def send_email(email)
-    #  FreeAgent.client.post("invoices/#{id}/send_email", email)
-    #end
+    def send_email
+      FreeAgent.client.post("invoices/#{id}/send_email")
+    end
 
     def mark_as_sent
       FreeAgent.client.put("invoices/#{id}/transitions/mark_as_sent", nil)
