@@ -54,8 +54,8 @@ module FreeAgent
     end
 
     # FIXME Need to figure out the format of the json.
-    def send_email
-      FreeAgent.client.post("invoices/#{id}/send_email")
+    def send_email(email)
+      FreeAgent.client.post("invoices/#{id}/send_email", email)
     end
 
     def mark_as_sent
