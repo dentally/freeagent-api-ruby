@@ -8,7 +8,7 @@ module FreeAgent
 
     attr_accessor :project, :discount_percent, :written_off_date
 
-    decimal_accessor :exchange_rate, :net_value, :sales_tax_value
+    decimal_accessor :exchange_rate, :net_value, :sales_tax_value, :due_value
 
     date_accessor :dated_on, :due_on
 
@@ -52,11 +52,11 @@ module FreeAgent
     def self.find_all_by_project(project)
       Invoice.filter(:project => project)
     end
-    
+
     # FIXME Need to figure out the format of the json.
-    #def send_email(email)
-    #  FreeAgent.client.post("invoices/#{id}/send_email", email)
-    #end
+    def send_email(email)
+      FreeAgent.client.post("invoices/#{id}/send_email", email)
+    end
 
     def mark_as_sent
       FreeAgent.client.put("invoices/#{id}/transitions/mark_as_sent", nil)
@@ -68,6 +68,10 @@ module FreeAgent
 
     def mark_as_cancelled
       FreeAgent.client.put("invoices/#{id}/transitions/mark_as_cancelled", nil)
+    end
+
+    def total_value
+      net_value + sales_tax_value
     end
 
     # TODO Write invoice timeline wrapper
