@@ -71,7 +71,7 @@ module FreeAgent
     end
 
     def total_value
-      net_value + sales_tax_value
+      BigDecimal.new(net_value.to_s) + BigDecimal.new(sales_tax_value.to_s)
     end
 
     # TODO Write invoice timeline wrapper
