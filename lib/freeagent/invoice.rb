@@ -74,6 +74,10 @@ module FreeAgent
       BigDecimal.new(net_value.to_s) + BigDecimal.new(sales_tax_value.to_s)
     end
 
+    def base64_pdf
+      FreeAgent.client.get("invoices/#{id}/pdf").fetch("pdf").fetch("content")
+    end
+
     # TODO Write invoice timeline wrapper
     #def timeline
     #
