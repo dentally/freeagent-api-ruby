@@ -41,7 +41,7 @@ module FreeAgent
     def self.connection_opts
       { :headers => { :user_agent => "freeagent-api-rb", :accept => "application/json", :content_type => "application/json" } }
     end
-    
+
     def fetch_access_token(auth_code, options)
       if options[:redirect_uri]
         @access_token = @client.auth_code.get_token(auth_code, options)

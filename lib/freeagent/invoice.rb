@@ -4,7 +4,7 @@ module FreeAgent
 
     resource_methods :default
 
-    attr_accessor :contact, :reference, :currency, :status, :omit_header, :payment_terms_in_days, :ec_status, :invoice_items, :payment_url
+    attr_accessor :contact, :reference, :currency, :status, :omit_header, :payment_terms_in_days, :ec_status, :invoice_items, :payment_url, :place_of_supply
 
     attr_accessor :project, :discount_percent, :written_off_date
 

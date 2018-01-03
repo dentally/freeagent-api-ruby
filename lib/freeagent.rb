@@ -20,6 +20,7 @@ module FreeAgent
   require_relative 'freeagent/expense'
   require_relative 'freeagent/bank_transaction'
   require_relative 'freeagent/journal_set'
+  require_relative 'freeagent/sales_tax_rate'
   class << self
     attr_accessor :environment
     attr_accessor :debug
