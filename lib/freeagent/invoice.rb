@@ -71,7 +71,7 @@ module FreeAgent
     end
 
     def total_value
-      BigDecimal.new(net_value.to_s) + BigDecimal.new(sales_tax_value.to_s)
+      net_value.to_s.to_d + sales_tax_value.to_s.to_d
     end
 
     def base64_pdf

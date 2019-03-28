@@ -1,6 +1,7 @@
 require 'date'
 require 'uri'
 require 'bigdecimal'
+require 'bigdecimal/util'
 require 'multi_json'
 
 module FreeAgent
